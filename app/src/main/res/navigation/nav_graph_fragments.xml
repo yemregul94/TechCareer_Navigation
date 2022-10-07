@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_fragments"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.works.navigation_project.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/mainToAlpha"
+            app:destination="@id/alphaFragment" />
+        <action
+            android:id="@+id/mainToCharlie"
+            app:destination="@id/charlieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/alphaFragment"
+        android:name="com.works.navigation_project.AlphaFragment"
+        android:label="fragment_alpha"
+        tools:layout="@layout/fragment_alpha" >
+        <action
+            android:id="@+id/alphaToBravo"
+            app:destination="@id/bravoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bravoFragment"
+        android:name="com.works.navigation_project.BravoFragment"
+        android:label="fragment_bravo"
+        tools:layout="@layout/fragment_bravo" >
+        <action
+            android:id="@+id/bravoToDelta"
+            app:destination="@id/deltaFragment"
+            app:popUpTo="@id/alphaFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/charlieFragment"
+        android:name="com.works.navigation_project.CharlieFragment"
+        android:label="fragment_charlie"
+        tools:layout="@layout/fragment_charlie" >
+        <action
+            android:id="@+id/charlieToDelta"
+            app:destination="@id/deltaFragment"
+            app:popUpTo="@id/charlieFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/deltaFragment"
+        android:name="com.works.navigation_project.DeltaFragment"
+        android:label="fragment_delta"
+        tools:layout="@layout/fragment_delta" />
+</navigation>
