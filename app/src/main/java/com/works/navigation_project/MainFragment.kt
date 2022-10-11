@@ -25,6 +25,17 @@ class MainFragment : Fragment() {
             Navigation.findNavController(it).navigate(navigateToCharlie)
         }
 
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                Snackbar.make(binding.root, "Çıkış Yapmak İstiyor Musunuz?", Snackbar.LENGTH_LONG).setAction("Evet") {
+                    isEnabled = false
+                    requireActivity().onBackPressed()
+                }.show()
+            }
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+
         return binding.root
     }
 
